@@ -15,14 +15,14 @@ Food delivery restaurant is a Symfony application that from a few input paramete
 
 Arguments:
 
-|Name|Type|Required|Description| Values                         |Default|
-|---|---|---|---|--------------------------------|---|
-|selectedFood|string|true|Type of food| burger, sushi, pizza, [*]kebap, [*]nuggets |
+|Name|Type|Required|Description| Values                                     |Default|
+|---|---|---|---|--------------------------------------------|---|
+|selectedFood|string|true|Type of food| burger, sushi, pizza, [1]kebap, [2]nuggets |
 |money|float|true|Amount of money given by the user||
 |isDelivery|bool|true|Is delivered or user must get the food from the restaurant|||
-|drinks|int|false|Number of drinks| 0, 1, 2                        |0|
+|drinks|int|false|Number of drinks| 0, 1, 2                                    |0|
 
-> [*] selectedFood not valid for create menu order.
+> [1]kebap and [2]nuggets are invalid food options to create the menu order, returns an error.
 
 ## Others.
 
