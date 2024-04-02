@@ -1,5 +1,7 @@
 # Food delivery restaurant
 
+./bin/console app:order:register burger 123.5 false 2
+
 Food delivery restaurant is a Symfony application that from a few input parameters (selected food, amount of money, number of drinks, is delivery) is capable to order food and return a response message.
 
 ## How it works

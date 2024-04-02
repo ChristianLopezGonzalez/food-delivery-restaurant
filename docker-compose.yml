@@ -1,0 +1,19 @@
+version: "3.7"
+
+networks:
+  local-sellboost:
+    name: local-food-delivery-restaurant
+    driver: bridge
+
+services:
+  backend:
+    image: thecodingmachine/php:8.1-v4-apache
+    volumes:
+      - .:/var/www/html
+    environment:
+      PHP_INI_MEMORY_LIMIT: 512M
+      PHP_EXTENSION_INTL: 1
+      PHP_EXTENSION_PGSQL: 1
+      PHP_EXTENSION_GD: 1
+      PHP_EXTENSION_PDO_PGSQL: 1
+      PHP_EXTENSION_XDEBUG: 1
