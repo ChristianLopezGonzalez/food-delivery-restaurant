@@ -1,73 +1,29 @@
 # Food delivery restaurant
 
-./bin/console app:order:register burger 123.5 false 2
-
 Food delivery restaurant is a Symfony application that from a few input parameters (selected food, amount of money, number of drinks, is delivery) is capable to order food and return a response message.
 
-## How it works
+## How to start.
 
+1. Build the backend image running the `make build` command in the root folder.
+2. Start the backend dockerized service running  the `make start` command in the root folder.
+3. Enter in console to run your commands running  the `make backend/console` command in the root folder. 
 
-Arguments
+## Commands.
+- Retrieve all delivery orders running the`./bin/console app:order:list:delivery` command inside the backend console.
 
-|Name|Type|Required|Description|Values|Default|
-|---|---|---|---|---|---|
-|selectedFood|string|true|Type of food|burger, sushi, pizza|
+- Create a new order running the `./bin/console app:order:register` command inside the backend console.
+
+Arguments:
+
+|Name|Type|Required|Description| Values                         |Default|
+|---|---|---|---|--------------------------------|---|
+|selectedFood|string|true|Type of food| burger, sushi, pizza, [*]kebap, [*]nuggets |
 |money|float|true|Amount of money given by the user||
 |isDelivery|bool|true|Is delivered or user must get the food from the restaurant|||
-|drinks|int|false|Number of drinks|0, 1, 2|0|
+|drinks|int|false|Number of drinks| 0, 1, 2                        |0|
 
+> [*] selectedFood not valid for create menu order.
 
-Prices
+## Others.
 
-|Drink|Price|
-|---|---|
-|Pizza|12.5|
-|Burger|9|
-|Sushi|24|
-|Drink|2|
-|Delivery cost|1.5|
-
-Validations
-* If the selected food is not *burger*, *pizza* or *sushi*, it shows the following message:
-```
-Selected food must be pizza, burger or sushi.
-```
-* If is not delivery and money does not reach order total amount, it shows the following message:
-```
-Money does not reach the order amount.
-```
-* If the number of drinks is not between 0 and 2, it shows the following message:
-```
-Number of drinks should be between 0 and 2.
-```
-* If delivery is true and money is not equal to the order total amount, it shows the following message:
-```
-Money must be the exact order amount on delivery orders.
-```
-* If the order with drinks has been registered with success, it shows the following message:
-```
-Your order with drinks included has been registered.
-```
-* If the order without drinks has been registered with success, it shows the following message:
-```
-Your order has been registered.
-```
-
-## What you have to do?
-First of all, the application must be dockerized.
-
-Right now all the application logic is in `OrderCommand` and we would like to have a reusable, maintainable and testable code, so we want to refactor
-this project following these principles:
-
-* Clean code
-* SOLID principles
-* Decoupling
-* Design patterns
-* Input validation
-* Error handling
-* Testing
-* DDD
-* Hexagonal architecture
-
-We also need another command to obtain all the registered orders with delivery. There is no need to save them in
-a DB, you could store them in a file.
+1. Run test with `make tests/backend`  command in the root folder.
