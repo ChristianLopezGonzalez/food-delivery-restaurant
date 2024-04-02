@@ -113,7 +113,7 @@ final class CreateMenuCommandQueryHandlerTest extends UnitTestCase
             ['concept' => $drink->code()->value(), 'price' => $drink->price()->value(), 'amount' => $drinksQty],
         ];
 
-        $order = OrderMother::createWithDelivery(orderLines: $orderLines);
+        $order = OrderMother::createWithPickup(orderLines: $orderLines);
 
         $query = new CreateMenuOrderCommandQuery(
             $order->id->value(),

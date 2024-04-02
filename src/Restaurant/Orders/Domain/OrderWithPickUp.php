@@ -37,7 +37,7 @@ final class OrderWithPickUp extends AbstractOrder
     {
         $expectedPrice = $orderLines->totalPrice();
 
-        if ($expectedPrice->lessThan($totalPrice)) {
+        if ($totalPrice->lessThan($expectedPrice)) {
             throw new PickUpOrderRequiresReachTotalPrice($expectedPrice->toString());
         }
     }
